@@ -7,6 +7,7 @@ CATEGORIES=	joyent
 MASTER_SITES=	http://spice-space.org/download/releases/
 EXTRACT_SUFX=	.tar.bz2
 
+USE_MULTIARCH=lib
 MAINTAINER=	nshalman-pkgsrc@elys.com
 HOMEPAGE=	http://spice-space.org/
 COMMENT= Spice server code library for QEMU
@@ -28,9 +29,9 @@ PKGCONFIG_OVERRIDE+=	spice-server.pc.in
 .include "../../security/openssl/buildlink3.mk"
 .include "../../graphics/libjpeg-turbo/buildlink3.mk"
 
-PYTHON_FOR_BUILD_ONLY=yes
-BUILD_DEPENDS+= python27:../../lang/python27
-BUILD_DEPENDS+= py27-parsing:../../wip/py-parsing
 .include "../../lang/python/extension.mk"
+PYTHON_FOR_BUILD_ONLY=yes
+#BUILD_DEPENDS+= python${PYVERSSUFFIX}:../../lang/python27
+BUILD_DEPENDS+= py${PYTHON_VERSION_DEFAULT}-parsing:../../wip/py-parsing
 
 .include "../../mk/bsd.pkg.mk"

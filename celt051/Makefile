@@ -17,6 +17,8 @@ USE_TOOLS+=	pkg-config
 
 PKGCONFIG_OVERRIDE+=	celt.pc.in
 
+USE_MULTIARCH=lib
+
 .include "../../mk/bsd.prefs.mk"
 .include "../../mk/oss.buildlink3.mk"
 
